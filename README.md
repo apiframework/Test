@@ -1,6 +1,8 @@
 Test
 ====
 
+[![Build Status](https://api.travis-ci.org/apiframework/Test.svg?branch=master)](https://travis-ci.org/apiframework/Test)
+
 Test writing utilities
 
 ### Apiframework\Test\ProtectedReflection
