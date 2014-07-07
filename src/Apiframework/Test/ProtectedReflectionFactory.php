@@ -15,6 +15,7 @@ class ProtectedReflectionFactory
 
     /**
      * @param $instance
+     * @return ProtectedReflection
      */
     public function build($instance)
     {
