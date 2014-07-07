@@ -15,7 +15,7 @@ class ProtectedReflectionFactory
 
     /**
      * @param $instance
-     * @return ProtectedReflection
+     * @return \Apiframework\Test\ProtectedReflection
      */
     public function build($instance)
     {

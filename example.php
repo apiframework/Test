@@ -1,13 +1,7 @@
-Test
-====
+<?php
 
-Test writing utilities
+include "./autoload.php";
 
-### Apiframework\Test\ProtectedReflection
-
-Allows easy testing for protected methods and properties.
-
-```php
 class Robot
 {
 
@@ -32,50 +26,14 @@ $helloTwo = $protected->invokeMethod("helloTwo", ['varOne', 'varTwo']);
 
 var_dump($helloTwo);
 
-```
-
-### Output
-
-```
-
-string(19) "hello varOne varTwo"
-
-```
-
-<?php
-
 $protected->invokeMethod("addToCache", ['david', 'bowie']);
 
 $cache = $protected->getProperty("cache");
 
 var_dump($cache);
 
-```
-
-### Output
-
-```
-array(1) {
-  'david' =>
-  string(5) "bowie"
-}
-```
-```
-<?php
-
 $protected->setProperty("cache", ['fab' => 'four']);
 
 $cache = $protected->getProperty("cache");
 
 var_dump($cache);
-
-
-```
-
-### Output
-
-```
-array(1) {
-  'fab' =>
-  string(4) "four"
-}
