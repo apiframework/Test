@@ -37,11 +37,9 @@ var_dump($helloTwo);
 ### Output
 
 ```
-
 string(19) "hello varOne varTwo"
-
 ```
-
+```
 <?php
 
 $protected->invokeMethod("addToCache", ['david', 'bowie']);
@@ -49,7 +47,6 @@ $protected->invokeMethod("addToCache", ['david', 'bowie']);
 $cache = $protected->getProperty("cache");
 
 var_dump($cache);
-
 ```
 
 ### Output
@@ -68,7 +65,6 @@ $protected->setProperty("cache", ['fab' => 'four']);
 $cache = $protected->getProperty("cache");
 
 var_dump($cache);
-
 
 ```
 
