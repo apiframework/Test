@@ -39,8 +39,7 @@ var_dump($helloTwo);
 ```
 string(19) "hello varOne varTwo"
 ```
-```
-<?php
+```php
 
 $protected->invokeMethod("addToCache", ['david', 'bowie']);
 
@@ -57,8 +56,7 @@ array(1) {
   string(5) "bowie"
 }
 ```
-```
-<?php
+```php
 
 $protected->setProperty("cache", ['fab' => 'four']);
 
