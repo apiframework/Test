@@ -7,6 +7,8 @@ Test writing utilities
 
 Allows easy testing for protected methods and properties.
 
+### invokeMethod - Execute a protected method
+
 ```php
 class Robot
 {
@@ -28,6 +30,7 @@ $robot = new Robot;
 
 $protected = (new Apiframework\Test\ProtectedReflectionFactory)->build($robot);
 
+// Accepts an array of arguments equal to the amount of arguments of the method
 $helloTwo = $protected->invokeMethod("helloTwo", ['varOne', 'varTwo']);
 
 var_dump($helloTwo);
@@ -39,6 +42,9 @@ var_dump($helloTwo);
 ```
 string(19) "hello varOne varTwo"
 ```
+
+### getProperty - get a protected property of the class
+
 ```php
 
 $protected->invokeMethod("addToCache", ['david', 'bowie']);
@@ -56,6 +62,9 @@ array(1) {
   string(5) "bowie"
 }
 ```
+
+### setProperty - set a protected property
+
 ```php
 
 $protected->setProperty("cache", ['fab' => 'four']);
