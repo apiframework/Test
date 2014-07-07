@@ -10,27 +10,27 @@
 namespace Apiframework\Test;
 
 
-class ProtectedReflection
+class ProtectedReflection implements ProtectedReflectionInterface
 {
     /**
      * @var mixed
      */
-    protected $testClass;
+    protected $TestClass;
 
     /**
      * @var \ReflectionClass
      */
-    protected $reflection;
+    protected $ReflectionClass;
 
     /**
-     * @param mixed $testClass
-     * @param \ReflectionClass $reflection
+     * @param mixed $TestClass
+     * @param \ReflectionClass $ReflectionClass
      */
-    public function __construct($testClass, $reflection)
+    public function __construct($TestClass, $ReflectionClass)
     {
 
-        $this->testClass = $testClass;
-        $this->reflection = $reflection;
+        $this->TestClass = $TestClass;
+        $this->ReflectionClass = $ReflectionClass;
     }
 
     /**
@@ -40,11 +40,25 @@ class ProtectedReflection
     public function getMethod($method)
     {
 
-        $method = $this->reflection->getMethod($method);
+        $method = $this->ReflectionClass->getMethod($method);
         $method->setAccessible(true);
 
         return $method;
     }
+
+    /**
+     * @param $method
+     * @param array $params
+     * @return mixed
+     */
+    public function invokeMethod($method, $params = array())
+    {
+
+        $method = $this->getMethod($method);
+        $params = array_merge([$this->TestClass], $params);
+        return call_user_func_array(array($method, "invoke"), $params);
+    }
+
 
     /**
      * @param $property
@@ -53,10 +67,10 @@ class ProtectedReflection
     public function getProperty($property)
     {
 
-        $property = $this->reflection->getProperty($property);
+        $property = $this->ReflectionClass->getProperty($property);
         $property->setAccessible(true);
 
-        return $property->getValue($this->testClass);
+        return $property->getValue($this->TestClass);
     }
 
     /**
@@ -66,10 +80,10 @@ class ProtectedReflection
     public function setProperty($property, $value)
     {
 
-        $property = $this->reflection->getProperty($property);
+        $property = $this->ReflectionClass->getProperty($property);
         $property->setAccessible(true);
 
-        return $property->setValue($this->testClass, $value);
+        return $property->setValue($this->TestClass, $value);
     }
 
 } 
