@@ -1,7 +1,7 @@
 <?php
 /**
  * @author Hone Watson
- * @email hone.watson@citrus.com.au
+ * @email code@hone.be
  * @copyright  Copyright (c) 2013 Hone Watson
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
@@ -33,6 +33,10 @@ class ProtectedReflection
         $this->reflection = $reflection;
     }
 
+    /**
+     * @param $method
+     * @return \ReflectionMethod
+     */
     public function getMethod($method)
     {
 
@@ -42,6 +46,10 @@ class ProtectedReflection
         return $method;
     }
 
+    /**
+     * @param $property
+     * @return mixed
+     */
     public function getProperty($property)
     {
 
@@ -51,6 +59,10 @@ class ProtectedReflection
         return $property->getValue($this->testClass);
     }
 
+    /**
+     * @param $property
+     * @param $value
+     */
     public function setProperty($property, $value)
     {
 
